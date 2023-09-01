@@ -1,45 +1,57 @@
-import RickAndMortyService from './service';
+import RickAndMortyService from "./service";
 
 const service = new RickAndMortyService();
 
 async function createCharacterList() {
-    const AllCharacters = await service.getAllCharacters();
-
-    for (let i = 0; i < AllCharacters.length; i++) {
-        const character = AllCharacters[i]
-        document.querySelector(".character-list").innerHTML += createCharacterCard(character)
-        addCharacterListeners(character)
-    }
+  const AllCharacters = await service.getAllCharacters();
+  console.log(AllCharacters);
+  for (let i = 0; i < AllCharacters.length; i++) {
+    const character = AllCharacters[i];
+    document.querySelector(".character-list").innerHTML += createCharacterCard(
+      character
+    );
+    addCharacterListeners(character);
+  }
 }
 
 function createCharacterCard(character) {
     return `<div class="character-card">
-        <div class="image">
-            <img>${character.image}</img>
+    <div class="image">
+        <img src="${character.image}"
+        width = 120px
+        style="border-radius:15% 0 0 15%;"
+        ></img>
         </div>
-        <div class="text">
-            <div class="primary-font">
-                <h2>${character.name}</h2>
-            </div>
-            <div class="secondary-font">
-                <p><span>${character.status}</span><span>${character.species}</span></p>
-                <h4>Last known location:</h4>
-                <span>${character.location.name}</span>
-                <h4>First seen in:</h4>
-                <p><span>${character.origin.name}</span></p>
-            </div>
-        </div>  
+    <div class="text">
+        <div class="name">
+            <h2>${character.name}</h2>
+        </div>
+        <div class="status">
+            <p><span data-status={{${character.status}}} class="dot"></span> <span>${character.status}</span> - <span>${character.species}</span></p>
+        </div>
+        <br> </br>
+        <div class="secondary-font">
+            <p>Last known location:</p>
+        </div>
+        <div class="primary-font">
+            <p><span>${character.location}</span></p>
+        </div>
+        <br> </br>
+        <div class="secondary-font">
+            <p>First seen in:</p>
+        </div>
+        <div class="primary-font">
+            <p><span>${character.firstseen}</span></p>
+        </div>
     </div>`;
 }
 
 function addCharacterListeners(character) {
-    const btn = service.querySelector("button");
-
-    function handleClick(e) {
-    output.textContent += `Hola, soy ${e.currentTarget.tagName}\n`;
-    }
-
-    btn.addEventListener("click", handleClick);
+  //    const btn = service.querySelector("button");
+  //    function handleClick(e) {
+  //    output.textContent += `Hola, soy ${e.currentTarget.tagName}\n`;
+  //    }
+  //    btn.addEventListener("click", handleClick);
 }
 
 createCharacterList();
