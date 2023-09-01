@@ -1,40 +1,44 @@
 import RickAndMortyService from './service';
 
-
-// acá deberás crear una instancia del servicio RickAndMortyService
-// const service = new RickAndMortyService();
-
-// esta función debe encargarse de obtener el elemento contenedor
-// y agregar los personajes obtenidos por el API, deberás llamar tu función getAllCharacters
-// iterar el arreglo de personajes y llamar a la función createCharacterCard para agregar cada personaje
-// a el contenedor puedes usar la propiedad innerHTML para esto
-
-// valor (1 punto)
+const service = new RickAndMortyService();
+service.getAllCharacters()
 
 function createCharacterList() {
-    // llamar primero createCharacterCard(character);
-    // llamar segundo addCharacterListeners(character);
+    for (let i = 0; i < service.length; i++) {
+
+        document.querySelector(".character-list").innerHTML += createCharacterCard(character)
+        addCharacterListeners(character)
+    }
 }
 
-// esta función debe devolver la estructura html en string de tu personaje ejemplo
+function createCharacterCard(character) {
+    return `<div class="character-card">
+        <div class="image">
+            <img>${character.image}</img>
+        </div>
+        <div class="text">
+            <div class="primary-font">
+                <h2>${character.name}</h2>
+            </div>
+            <div class="secondary-font">
+                <p><span>${character.status}</span><span>${character.species}</span></p>
+                <h4>Last known location:</h4>
+                <span>${character.location.name}</span>
+                <h4>First seen in:</h4>
+                <p><span>${character.origin.name}</span></p>
+            </div>
+        </div>  
+    </div>`;
+}
 
-// `<div class="character">
-//      <span>${gender}</span>
-//      <span>${name}</span>
-// </div>`;
+function addCharacterListeners(character) {
+    const btn = service.querySelector("button");
 
-// deberás usar los elementos correctos de HTML para poder visualizar el personaje
+    function handleClick(e) {
+    output.textContent += `Hola, soy ${e.currentTarget.tagName}\n`;
+    }
 
-// valor (1 punto) HTML
+    btn.addEventListener("click", handleClick);
+}
 
-function createCharacterCard(character) {}
-
-// esta función deberá obtener todos los personajes y deberá agregarles un evento de click
-// cuando se seleccione un personaje debe decir hola soy 'nombre personaje', recuerda que puedes obtener
-// el elemento target de un evento y así obtener sus propiedades
-
-function addCharacterListeners(character) {}
-
-
-// por último se llama la función y se renderiza la vista
 createCharacterList();

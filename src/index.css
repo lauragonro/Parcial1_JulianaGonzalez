@@ -1,5 +1,4 @@
 /* aca van tus estilos valor (2 puntos)*/
-
 :root {
     --character-list-color: #272B33; /* color de la lista de personajes */
     --character-color: #3B3E43; /* color del card del personaje */
@@ -12,6 +11,38 @@
 }
 
 .character-list {
-    /* ejemplo de uso de variables con css */
     background-color: var(--character-list-color);
+
+    height: 95vh;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.character-card {
+    background-color: var(--character-color);
+    height: 200px;
+    font-family: var(--font);
+}
+
+.image {
+    height: 180px;
+}
+
+.text {
+    height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.primary-font {
+    background-color: var(--primary-font-color);
+    font-size: 14px;
+}
+
+.secondary-font {
+    background-color: var(--secondary-font-color);
+    font-size: 10px;
 }
