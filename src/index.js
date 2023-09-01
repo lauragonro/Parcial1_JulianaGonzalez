@@ -47,11 +47,15 @@ function createCharacterCard(character) {
 }
 
 function addCharacterListeners(character) {
-  //    const btn = service.querySelector("button");
-  //    function handleClick(e) {
-  //    output.textContent += `Hola, soy ${e.currentTarget.tagName}\n`;
-  //    }
-  //    btn.addEventListener("click", handleClick);
+    const output = document.querySelector(".character-card");
+    const btn = document.querySelector(".character-card");
+  
+    function handleClick(e) {
+      output.textContent += `<br>Hola, mi nombre es ${character.name} </br>`;
+      document.body.style.backgroundColor = `#f5f5f5`;
+    }
+  
+    btn.addEventListener("click", handleClick);
 }
 
 createCharacterList();
