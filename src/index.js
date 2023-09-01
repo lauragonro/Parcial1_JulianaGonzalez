@@ -19,7 +19,7 @@ function createCharacterCard(character) {
     <div class="image">
         <img src="${character.image}"
         width = 120px
-        style="border-radius:15% 0 0 15%;"
+        style="border-radius:10px 0 0 10px;"
         ></img>
         </div>
     <div class="text">
