@@ -1,9 +1,10 @@
 import RickAndMortyService from './service';
 
 const service = new RickAndMortyService();
-const AllCharacters = await service.getAllCharacters()
 
-function createCharacterList() {
+async function createCharacterList() {
+    const AllCharacters = await service.getAllCharacters();
+
     for (let i = 0; i < AllCharacters.length; i++) {
         document.querySelector(".character-list").innerHTML += createCharacterCard(character)
         addCharacterListeners(character)
