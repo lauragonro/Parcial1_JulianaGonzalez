@@ -54,11 +54,7 @@
 .dot[data-status="unknown"]:after {
     color: var(--unknown);
 }
-  
-.dot[data-status="Alive"]:after {
-    color: var(--alive);
-}
-  
+
 .dot[data-status="Dead"]:after {
     color: var(--dead);
 }
